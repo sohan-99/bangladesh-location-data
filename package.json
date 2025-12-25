@@ -52,12 +52,12 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/yourusername/bangladesh-location-data.git"
+    "url": "git+https://github.com/sohan-99/bangladesh-location-data.git"
   },
   "bugs": {
-    "url": "https://github.com/yourusername/bangladesh-location-data/issues"
+    "url": "https://github.com/sohan-99/bangladesh-location-data/issues"
   },
-  "homepage": "https://github.com/yourusername/bangladesh-location-data#readme",
+  "homepage": "https://github.com/sohan-99/bangladesh-location-data#readme",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },

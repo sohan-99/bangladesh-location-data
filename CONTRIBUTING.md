@@ -8,7 +8,7 @@ Thank you for considering contributing to this project! 🎉
 
 If you find any errors in the location data:
 
-1. Check if the issue already exists in [Issues](https://github.com/yourusername/bangladesh-location-data/issues)
+1. Check if the issue already exists in [Issues](https://github.com/sohan-99/bangladesh-location-data/issues)
 2. If not, create a new issue with:
    - Clear title describing the problem
    - Current (incorrect) data
@@ -19,7 +19,7 @@ If you find any errors in the location data:
 
 1. **Fork the Repository**
    ```bash
-   git clone https://github.com/yourusername/bangladesh-location-data.git
+   git clone https://github.com/sohan-99/bangladesh-location-data.git
    cd bangladesh-location-data
    ```
 
@@ -82,7 +82,7 @@ If you find any errors in the location data:
 
 ## Questions?
 
-Open a [Discussion](https://github.com/yourusername/bangladesh-location-data/discussions) for questions about contributing.
+Open a [Discussion](https://github.com/sohan-99/bangladesh-location-data/discussions) for questions about contributing.
 
 ---
 

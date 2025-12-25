@@ -68,7 +68,7 @@ npm install bangladesh-location-data
 Clone this repository or download specific files:
 
 ```bash
-git clone https://github.com/yourusername/bangladesh-location-data.git
+git clone https://github.com/sohan-99/bangladesh-location-data.git
 ```
 
 ## 🚀 Usage
@@ -291,8 +291,8 @@ This project is licensed under the **MIT License** - see the [LICENSE](LICENSE) 
 
 ## 📧 Contact & Support
 
-- **Issues**: [GitHub Issues](https://github.com/yourusername/bangladesh-location-data/issues)
-- **Discussions**: [GitHub Discussions](https://github.com/yourusername/bangladesh-location-data/discussions)
+- **Issues**: [GitHub Issues](https://github.com/sohan-99/bangladesh-location-data/issues)
+- **Discussions**: [GitHub Discussions](https://github.com/sohan-99/bangladesh-location-data/discussions)
 
 ## ⭐ Show Your Support
 
