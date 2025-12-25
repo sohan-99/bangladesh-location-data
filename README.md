@@ -3,7 +3,8 @@
 A comprehensive, open-source dataset containing all administrative divisions of Bangladesh - from **Divisions** down to **Unions** - available in both **Bangla (বাংলা)** and **English**.
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![npm version](https://badge.fury.io/js/bangladesh-location-data.svg)](https://www.npmjs.com/package/bangladesh-location-data)
+[![npm version](https://img.shields.io/npm/v/bangladesh-location-data.svg)](https://www.npmjs.com/package/bangladesh-location-data)
+[![npm downloads](https://img.shields.io/npm/dm/bangladesh-location-data.svg)](https://www.npmjs.com/package/bangladesh-location-data)
 
 ## 📋 Table of Contents
 
