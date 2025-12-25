@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bangladesh Location Selector - Vanilla JS Example</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .container {
+            background: white;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            max-width: 600px;
+            width: 100%;
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 10px;
+            font-size: 28px;
+        }
+
+        .subtitle {
+            text-align: center;
+            color: #666;
+            margin-bottom: 30px;
+            font-size: 14px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            color: #333;
+            font-weight: 600;
+            font-size: 14px;
+        }
+
+        select {
+            width: 100%;
+            padding: 12px 15px;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            font-size: 16px;
+            background: white;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        select:hover {
+            border-color: #667eea;
+        }
+
+        select:focus {
+            outline: none;
+            border-color: #667eea;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+        }
+
+        select:disabled {
+            background: #f5f5f5;
+            cursor: not-allowed;
+            opacity: 0.6;
+        }
+
+        .result {
+            margin-top: 30px;
+            padding: 20px;
+            background: #f8f9fa;
+            border-radius: 10px;
+            display: none;
+        }
+
+        .result.show {
+            display: block;
+        }
+
+        .result h3 {
+            color: #333;
+            margin-bottom: 10px;
+            font-size: 18px;
+        }
+
+        .result p {
+            color: #666;
+            line-height: 1.6;
+        }
+
+        .result strong {
+            color: #667eea;
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 4px 12px;
+            background: #667eea;
+            color: white;
+            border-radius: 20px;
+            font-size: 12px;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🇧🇩 Bangladesh Location Selector</h1>
+        <p class="subtitle">Select your location from Division to Union</p>
+
+        <form id="locationForm">
+            <div class="form-group">
+                <label for="division">বিভাগ / Division</label>
+                <select id="division" required>
+                    <option value="">Select Division</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="district">জেলা / District</label>
+                <select id="district" disabled required>
+                    <option value="">First select a division</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="upazila">উপজেলা / Upazila</label>
+                <select id="upazila" disabled>
+                    <option value="">First select a district</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="union">ইউনিয়ন / Union</label>
+                <select id="union" disabled>
+                    <option value="">First select an upazila</option>
+                </select>
+            </div>
+        </form>
+
+        <div class="result" id="result">
+            <h3>✅ Selected Location</h3>
+            <p id="selectedLocation"></p>
+            <span class="badge">Ready to use!</span>
+        </div>
+    </div>
+
+    <script type="module">
+        // Import the data (adjust path as needed)
+        import { divisions, districts, upazilas, unions } from '../locationBdDivisonsToUnionsBangla.js';
+
+        // Get form elements
+        const divisionSelect = document.getElementById('division');
+        const districtSelect = document.getElementById('district');
+        const upazilaSelect = document.getElementById('upazila');
+        const unionSelect = document.getElementById('union');
+        const resultDiv = document.getElementById('result');
+        const selectedLocationP = document.getElementById('selectedLocation');
+
+        // Store selections
+        let selectedData = {
+            division: null,
+            district: null,
+            upazila: null,
+            union: null
+        };
+
+        // Populate divisions on page load
+        function populateDivisions() {
+            divisions.forEach(division => {
+                const option = document.createElement('option');
+                option.value = division.value;
+                option.textContent = division.title;
+                divisionSelect.appendChild(option);
+            });
+        }
+
+        // Handle division change
+        divisionSelect.addEventListener('change', (e) => {
+            const divisionId = e.target.value;
+            selectedData.division = divisions.find(d => d.value === divisionId);
+            
+            // Reset dependent selects
+            resetSelect(districtSelect, 'Select District');
+            resetSelect(upazilaSelect, 'First select a district');
+            resetSelect(unionSelect, 'First select an upazila');
+            
+            if (divisionId) {
+                // Populate districts
+                const divisionDistricts = districts[divisionId] || [];
+                divisionDistricts.forEach(district => {
+                    const option = document.createElement('option');
+                    option.value = district.value;
+                    option.textContent = district.title;
+                    districtSelect.appendChild(option);
+                });
+                districtSelect.disabled = false;
+            } else {
+                districtSelect.disabled = true;
+                selectedData.division = null;
+            }
+            
+            updateResult();
+        });
+
+        // Handle district change
+        districtSelect.addEventListener('change', (e) => {
+            const districtId = e.target.value;
+            selectedData.district = districts[selectedData.division?.value]?.find(d => d.value === districtId);
+            
+            // Reset dependent selects
+            resetSelect(upazilaSelect, 'Select Upazila');
+            resetSelect(unionSelect, 'First select an upazila');
+            
+            if (districtId) {
+                // Populate upazilas
+                const districtUpazilas = upazilas[districtId] || [];
+                if (districtUpazilas.length > 0) {
+                    districtUpazilas.forEach(upazila => {
+                        const option = document.createElement('option');
+                        option.value = upazila.value;
+                        option.textContent = upazila.title;
+                        upazilaSelect.appendChild(option);
+                    });
+                    upazilaSelect.disabled = false;
+                } else {
+                    upazilaSelect.disabled = true;
+                }
+            } else {
+                upazilaSelect.disabled = true;
+                selectedData.district = null;
+            }
+            
+            updateResult();
+        });
+
+        // Handle upazila change
+        upazilaSelect.addEventListener('change', (e) => {
+            const upazilaId = e.target.value;
+            selectedData.upazila = upazilas[selectedData.district?.value]?.find(u => u.value === upazilaId);
+            
+            // Reset union select
+            resetSelect(unionSelect, 'Select Union');
+            
+            if (upazilaId) {
+                // Populate unions
+                const upazilaUnions = unions[upazilaId] || [];
+                if (upazilaUnions.length > 0) {
+                    upazilaUnions.forEach(union => {
+                        const option = document.createElement('option');
+                        option.value = union.value;
+                        option.textContent = union.title;
+                        unionSelect.appendChild(option);
+                    });
+                    unionSelect.disabled = false;
+                } else {
+                    unionSelect.disabled = true;
+                }
+            } else {
+                unionSelect.disabled = true;
+                selectedData.upazila = null;
+            }
+            
+            updateResult();
+        });
+
+        // Handle union change
+        unionSelect.addEventListener('change', (e) => {
+            const unionId = e.target.value;
+            selectedData.union = unions[selectedData.upazila?.value]?.find(u => u.value === unionId);
+            updateResult();
+        });
+
+        // Reset select element
+        function resetSelect(selectElement, placeholder) {
+            selectElement.innerHTML = `<option value="">${placeholder}</option>`;
+            selectElement.disabled = true;
+        }
+
+        // Update result display
+        function updateResult() {
+            let resultText = '';
+            
+            if (selectedData.division) {
+                resultText += `<strong>Division:</strong> ${selectedData.division.title}<br>`;
+            }
+            if (selectedData.district) {
+                resultText += `<strong>District:</strong> ${selectedData.district.title}<br>`;
+            }
+            if (selectedData.upazila) {
+                resultText += `<strong>Upazila:</strong> ${selectedData.upazila.title}<br>`;
+            }
+            if (selectedData.union) {
+                resultText += `<strong>Union:</strong> ${selectedData.union.title}`;
+            }
+            
+            if (resultText) {
+                selectedLocationP.innerHTML = resultText;
+                resultDiv.classList.add('show');
+            } else {
+                resultDiv.classList.remove('show');
+            }
+        }
+
+        // Initialize
+        populateDivisions();
+    </script>
+</body>
+</html>

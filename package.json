@@ -1,0 +1,67 @@
+{
+  "name": "bangladesh-location-data",
+  "version": "1.0.0",
+  "description": "Comprehensive Bangladesh location data (Divisions, Districts, Upazilas, Unions) in Bangla and English",
+  "main": "locationBdDivisonsToUnionsEnglish.js",
+  "types": "index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./locationBdDivisonsToUnionsEnglish.js",
+      "require": "./locationBdDivisonsToUnionsEnglish.js"
+    },
+    "./bangla": {
+      "import": "./locationBdDivisonsToUnionsBangla.js",
+      "require": "./locationBdDivisonsToUnionsBangla.js"
+    },
+    "./english": {
+      "import": "./locationBdDivisonsToUnionsEnglish.js",
+      "require": "./locationBdDivisonsToUnionsEnglish.js"
+    },
+    "./bangla.json": "./locationBdDivisonsToUnionsBangla.json",
+    "./english.json": "./locationBdDivisonsToUnionsEnglish.json"
+  },
+  "files": [
+    "locationBdDivisonsToUnionsBangla.js",
+    "locationBdDivisonsToUnionsBangla.json",
+    "locationBdDivisonsToUnionsEnglish.js",
+    "locationBdDivisonsToUnionsEnglish.json",
+    "README.md",
+    "LICENSE"
+  ],
+  "keywords": [
+    "bangladesh",
+    "location",
+    "division",
+    "district",
+    "upazila",
+    "union",
+    "bangla",
+    "bengali",
+    "administrative",
+    "geography",
+    "bd",
+    "বাংলাদেশ",
+    "বিভাগ",
+    "জেলা",
+    "উপজেলা",
+    "dropdown",
+    "select",
+    "form"
+  ],
+  "author": "Bangladesh Location Data Contributors",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yourusername/bangladesh-location-data.git"
+  },
+  "bugs": {
+    "url": "https://github.com/yourusername/bangladesh-location-data/issues"
+  },
+  "homepage": "https://github.com/yourusername/bangladesh-location-data#readme",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "engines": {
+    "node": ">=12.0.0"
+  }
+}
