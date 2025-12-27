@@ -164,8 +164,17 @@
     </div>
 
     <script type="module">
-        // Import the data (adjust path as needed)
-        import { divisions, districts, upazilas, unions } from '../locationBdDivisonsToUnionsBangla.js';
+        // Import the Bangla data (adjust path as needed)
+        import { divisions_bn, districts_bn, upazilas_bn, unions_bn } from '../locationBdDivisonsToUnionsBangla.js';
+        
+        // You can also use English version:
+        // import { divisions_en, districts_en, upazilas_en, unions_en } from '../locationBdDivisonsToUnionsEnglish.js';
+        
+        // Use the imported data
+        const divisions = divisions_bn;
+        const districts = districts_bn;
+        const upazilas = upazilas_bn;
+        const unions = unions_bn;
 
         // Get form elements
         const divisionSelect = document.getElementById('division');

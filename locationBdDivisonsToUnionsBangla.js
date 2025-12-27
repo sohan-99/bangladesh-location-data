@@ -1,4 +1,4 @@
-const divisions = [
+const divisions_bn = [
     { value: '30', title: 'ঢাকা', },
     { value: '20', title: 'চট্টগ্রাম' },
     { value: '50', title: 'রাজশাহী' },
@@ -8,7 +8,7 @@ const divisions = [
     { value: '10', title: 'বরিশাল' },
     { value: '60', title: 'সিলেট' }
 ];
-const districts = {
+const districts_bn = {
     '10': [
         { value: "4", title: "বরগুনা" },
         { value: "6", title: "বরিশাল" },
@@ -90,7 +90,7 @@ const districts = {
         { value: "91", title: "সিলেট" }
     ]
 }
-const upazilas = {
+const upazilas_bn = {
     '1': [
         { value: "221", title: "কচুয়া" },
         { value: "223", title: "চিতলমারী" },
@@ -724,7 +724,7 @@ const upazilas = {
         { value: "438", title: "হরিপুর" }
     ]
 }
-const unions = JSON.parse(`{
+const unions_bn = JSON.parse(`{
     "317": [
         {
             "value": 2842,
@@ -21589,9 +21589,9 @@ const unions = JSON.parse(`{
     ]
 }`);
 
-module.exports = {
-    divisions,
-    districts,
-    upazilas,
-    unions
+export default {
+    divisions_bn,
+    districts_bn,
+    upazilas_bn,
+    unions_bn
 }

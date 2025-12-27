@@ -110,17 +110,20 @@
 </template>
 
 <script>
-import { divisions, districts, upazilas, unions } from '../locationBdDivisonsToUnionsBangla.js';
+import { divisions_bn, districts_bn, upazilas_bn, unions_bn } from '../locationBdDivisonsToUnionsBangla.js';
+
+// You can also use English version:
+// import { divisions_en, districts_en, upazilas_en, unions_en } from '../locationBdDivisonsToUnionsEnglish.js';
 
 export default {
   name: 'LocationSelector',
   
   data() {
     return {
-      divisions,
-      districts,
-      upazilas,
-      unions,
+      divisions: divisions_bn,
+      districts: districts_bn,
+      upazilas: upazilas_bn,
+      unions: unions_bn,
       
       selectedDivision: '',
       selectedDistrict: '',

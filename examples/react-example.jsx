@@ -1,5 +1,8 @@
-import React, { useState, useEffect } from 'react';
-import { divisions, districts, upazilas, unions } from '../locationBdDivisonsToUnionsBangla.js';
+import  { useState } from 'react';
+import { divisions_bn, districts_bn, upazilas_bn, unions_bn } from '../locationBdDivisonsToUnionsBangla.js';
+
+// You can also use English version:
+// import { divisions_en, districts_en, upazilas_en, unions_en } from '../locationBdDivisonsToUnionsEnglish.js';
 
 function LocationSelector() {
   const [selectedDivision, setSelectedDivision] = useState('');
@@ -20,7 +23,7 @@ function LocationSelector() {
     setSelectedUnion('');
     
     if (divisionId) {
-      setAvailableDistricts(districts[divisionId] || []);
+      setAvailableDistricts(districts_bn[divisionId] || []);
     } else {
       setAvailableDistricts([]);
     }
@@ -36,7 +39,7 @@ function LocationSelector() {
     setSelectedUnion('');
     
     if (districtId) {
-      setAvailableUpazilas(upazilas[districtId] || []);
+      setAvailableUpazilas(upazilas_bn[districtId] || []);
     } else {
       setAvailableUpazilas([]);
     }
@@ -50,7 +53,7 @@ function LocationSelector() {
     setSelectedUnion('');
     
     if (upazilaId) {
-      setAvailableUnions(unions[upazilaId] || []);
+      setAvailableUnions(unions_bn[upazilaId] || []);
     } else {
       setAvailableUnions([]);
     }
@@ -64,7 +67,7 @@ function LocationSelector() {
   // Get selected location data
   const getSelectedLocationData = () => {
     return {
-      division: divisions.find(d => d.value === selectedDivision),
+      division: divisions_bn.find(d => d.value === selectedDivision),
       district: availableDistricts.find(d => d.value === selectedDistrict),
       upazila: availableUpazilas.find(u => u.value === selectedUpazila),
       union: availableUnions.find(u => u.value === selectedUnion)
@@ -85,7 +88,7 @@ function LocationSelector() {
           className="form-control"
         >
           <option value="">Select Division</option>
-          {divisions.map(division => (
+          {divisions_bn.map(division => (
             <option key={division.value} value={division.value}>
               {division.title}
             </option>

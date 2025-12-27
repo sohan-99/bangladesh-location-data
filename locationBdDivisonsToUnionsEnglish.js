@@ -23320,6 +23320,9 @@ const districts_en = {
         }
     ]
 }`);
-module.exports = {
-    unions_en, districts_en, divisions_en, upazilas_en
+export default {
+      divisions_en,
+       districts_en,
+       upazilas_en,
+       unions_en
 }

@@ -77,32 +77,52 @@ git clone https://github.com/sohan-99/bangladesh-location-data.git
 ### JavaScript/TypeScript (ES6 Modules)
 
 ```javascript
-// Import Bangla data
-import { 
-  divisions, 
-  districts, 
-  upazilas, 
-  unions 
-} from './locationBdDivisonsToUnionsBangla.js';
+// Import English and Bangla data from the package
+import {
+  divisions_en,
+  districts_en,
+  upazilas_en,
+  unions_en,
+  divisions_bn,
+  districts_bn,
+  upazilas_bn,
+  unions_bn
+} from 'bangladesh-location-data';
 
-// Get all divisions
-console.log(divisions);
+// Use English data
+console.log(divisions_en);
+// Output: [{ value: 30, title: 'Dhaka' }, ...]
+
+// Use Bangla data
+console.log(divisions_bn);
 // Output: [{ value: '30', title: 'ঢাকা' }, ...]
-
-// Get districts under Dhaka division (value: 30)
-console.log(districts['30']);
-// Output: [{ value: '26', title: 'ঢাকা' }, ...]
 ```
 
 ### React Example
 
 ```jsx
-import React, { useState } from 'react';
-import { divisions, districts } from 'bangladesh-location-data';
+import { useState } from 'react';
+// Import both English and Bangla exports
+import {
+  divisions_en,
+  districts_en,
+  upazilas_en,
+  unions_en,
+  divisions_bn,
+  districts_bn,
+  upazilas_bn,
+  unions_bn
+} from 'bangladesh-location-data';
 
 function LocationSelector() {
   const [selectedDivision, setSelectedDivision] = useState('');
   const [availableDistricts, setAvailableDistricts] = useState([]);
+
+  // Toggle between English or Bangla datasets as needed
+  const divisions = divisions_en;
+  const districts = districts_en;
+  const upazilas = upazilas_en;
+  const unions = unions_en;
 
   const handleDivisionChange = (e) => {
     const divisionId = e.target.value;
@@ -174,13 +194,26 @@ app.get('/api/districts/:divisionId', (req, res) => {
 </template>
 
 <script>
-import { divisions, districts } from './locationBdDivisonsToUnionsBangla.js';
+// Import both English and Bangla exports from the package
+import {
+  divisions_en,
+  districts_en,
+  upazilas_en,
+  unions_en,
+  divisions_bn,
+  districts_bn,
+  upazilas_bn,
+  unions_bn
+} from 'bangladesh-location-data';
 
 export default {
   data() {
     return {
-      divisions,
-      districts,
+      // Switch to divisions_bn / districts_bn / upazilas_bn / unions_bn for Bangla UI
+      divisions: divisions_en,
+      districts: districts_en,
+      upazilas: upazilas_en,
+      unions: unions_en,
       selectedDivision: '',
       currentDistricts: []
     };
