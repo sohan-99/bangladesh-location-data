@@ -40,20 +40,10 @@ export const upazilas_en: LocationMap;
  */
 export const unions_en: LocationMap;
 
-declare module 'bangladesh-location-data' {
-  export { divisions_en, districts_en, upazilas_en, unions_en };
-  export type { LocationItem, LocationMap };
-}
-
-declare module 'bangladesh-location-data/bangla' {
-  export const divisions_bn: LocationItem[];
-  export const districts_bn: LocationMap;
-  export const upazilas_bn: LocationMap;
-  export const unions_bn: LocationMap;
-  export type { LocationItem, LocationMap };
-}
-
-declare module 'bangladesh-location-data/english' {
-  export { divisions_en, districts_en, upazilas_en, unions_en };
-  export type { LocationItem, LocationMap };
-}
+/**
+ * Bangla language data
+ */
+export const divisions_bn: LocationItem[];
+export const districts_bn: LocationMap;
+export const upazilas_bn: LocationMap;
+export const unions_bn: LocationMap;
