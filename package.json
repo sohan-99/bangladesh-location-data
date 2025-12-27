@@ -1,6 +1,6 @@
 {
   "name": "bangladesh-location-data",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Comprehensive Bangladesh location data (Divisions, Districts, Upazilas, Unions) in Bangla and English",
   "main": "locationBdDivisonsToUnionsEnglish.js",
   "types": "index.d.ts",
