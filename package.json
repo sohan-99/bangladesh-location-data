@@ -6,16 +6,37 @@
   "types": "index.d.ts",
   "exports": {
     ".": {
-      "import": "./locationBdDivisonsToUnionsEnglish.js",
-      "require": "./locationBdDivisonsToUnionsEnglish.js"
+      "import": {
+        "types": "./index.d.ts",
+        "default": "./locationBdDivisonsToUnionsEnglish.js"
+      },
+      "require": {
+        "types": "./index.d.ts",
+        "default": "./locationBdDivisonsToUnionsEnglish.js"
+      },
+      "default": "./locationBdDivisonsToUnionsEnglish.js"
     },
     "./bangla": {
-      "import": "./locationBdDivisonsToUnionsBangla.js",
-      "require": "./locationBdDivisonsToUnionsBangla.js"
+      "import": {
+        "types": "./index.d.ts",
+        "default": "./locationBdDivisonsToUnionsBangla.js"
+      },
+      "require": {
+        "types": "./index.d.ts",
+        "default": "./locationBdDivisonsToUnionsBangla.js"
+      },
+      "default": "./locationBdDivisonsToUnionsBangla.js"
     },
     "./english": {
-      "import": "./locationBdDivisonsToUnionsEnglish.js",
-      "require": "./locationBdDivisonsToUnionsEnglish.js"
+      "import": {
+        "types": "./index.d.ts",
+        "default": "./locationBdDivisonsToUnionsEnglish.js"
+      },
+      "require": {
+        "types": "./index.d.ts",
+        "default": "./locationBdDivisonsToUnionsEnglish.js"
+      },
+      "default": "./locationBdDivisonsToUnionsEnglish.js"
     },
     "./bangla.json": "./locationBdDivisonsToUnionsBangla.json",
     "./english.json": "./locationBdDivisonsToUnionsEnglish.json"
