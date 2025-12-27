@@ -23320,6 +23320,11 @@ const districts_en = {
         }
     ]
 }`);
+
+// Named exports
+export { divisions_en, districts_en, upazilas_en, unions_en };
+
+// Default export
 export default {
       divisions_en,
        districts_en,

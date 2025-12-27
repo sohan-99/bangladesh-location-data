@@ -21589,6 +21589,10 @@ const unions_bn = JSON.parse(`{
     ]
 }`);
 
+// Named exports
+export { divisions_bn, districts_bn, upazilas_bn, unions_bn };
+
+// Default export
 export default {
     divisions_bn,
     districts_bn,
